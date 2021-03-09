@@ -24,14 +24,18 @@ public class EnemyCollision : MonoBehaviour
         }
         else if (other.tag == "Laser")
         {
-            Player _player = GameObject.Find("Player").GetComponent<Player>();
-            if (_player != null)
+            if (!other.GetComponent<Laser>()._isEnemyLaser)
             {
-                _player.AddScore(10);
+                Player _player = GameObject.Find("Player").GetComponent<Player>();
+                if (_player != null)
+                {
+                    _player.AddScore(10);
+                }
+
+                IDamage.Damage();
+                other.gameObject.SetActive(false);
             }
 
-            IDamage.Damage();
-            Destroy(other.gameObject);
         }
     }
 }

@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class LaserSelection : MonoBehaviour,ILaser
 {
-    [SerializeField]
-    private GameObject _laserPrefab, _tripleShotPrefab;
+    ObjectPooler objectPooler;
+    private void Start()
+    {
+        objectPooler = ObjectPooler.Instance;
+    }
+
     [SerializeField]
     private Transform _transform;
     public void Default()
-    {  
-        Instantiate(_laserPrefab, _transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity); 
+    {
+        objectPooler.SpawnFromPool("Laser", _transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
     }
 
     public void Boosted()
     {
-        Instantiate(_tripleShotPrefab, _transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
+        objectPooler.SpawnFromPool("TripleLaser", _transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
     }
 }

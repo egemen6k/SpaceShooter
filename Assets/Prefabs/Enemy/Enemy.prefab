@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7630241760022733573}
   - component: {fileID: -8568582533900390459}
   - component: {fileID: 847260821425618293}
+  - component: {fileID: -4793107902899964771}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -262,9 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012e9deb2d026214c8d01ce96f998743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.5
-  _laserPrefab: {fileID: 8933248070756274774, guid: fd9c67e2f082f2e43993fc2c23dea157,
-    type: 3}
 --- !u!114 &-8568582533900390459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,3 +287,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d4c9f9b0157da4cac5c254112ef4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4793107902899964771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162534666041968528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ec21df708712b47915da8bfed68446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2

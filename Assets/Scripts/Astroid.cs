@@ -30,7 +30,7 @@ public class Astroid : MonoBehaviour
         {
             GameObject anim = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             _spawnManager.StartSpawning();
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             Destroy(GetComponent<Collider2D>());
             Destroy(this.gameObject, 0.25f);
         }

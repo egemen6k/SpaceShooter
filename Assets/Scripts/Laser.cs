@@ -2,12 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class Laser : MonoBehaviour,IPooledObject
 {
     [SerializeField]
     private float _speed = 8f;
+    [SerializeField]
+    private AudioSource _laserSound;
+    public bool _isEnemyLaser = false;
 
-    private bool _isEnemyLaser = false;
+    public void OnObjectSpawn()
+    {
+        _laserSound = GetComponent<AudioSource>();
+        if (_laserSound != null)
+        {
+            _laserSound.Play();
+        }
+    }
 
     void Update()
     {
@@ -31,7 +41,7 @@ public class Laser : MonoBehaviour
             {
                 Destroy(transform.parent.gameObject);
             }
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -45,7 +55,7 @@ public class Laser : MonoBehaviour
             {
                 Destroy(transform.parent.gameObject);
             }
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -63,8 +73,10 @@ public class Laser : MonoBehaviour
             if (IDamage != null)
             {
                 IDamage.Damage();
-                Destroy(this.gameObject);
+                gameObject.SetActive(false);
             }
         }
     }
+
+
 }
